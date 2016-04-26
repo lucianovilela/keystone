@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Não aperte o botão</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1593936560859764',
+		      xfbml      : true,
+		      version    : 'v2.5'
+		    });
+		  };
+		
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+</head>
+
+<body id="page-top" class="index">
+    <!-- About Section -->
+    <section class="success" id="about">
+        <div class="container">
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+            <canvas class="img-responsive" id='imagem'></canvas>
+			 <div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true"
+			  data-caman-id="0">
+			</div>
+
+  			<div id="Filters">
+		    <div class="Filter">
+		      <div class="FilterName">
+		        <p>brightness</p>
+		      </div>
+		
+		      <div class="FilterSetting">
+		        <input id="brightness" min="-100" max="100" step="1" value="0" data-filter="brightness" type="range">
+		        <span class="FilterValue">0</span>
+		      </div>
+		    </div>
+		  
+			
+		
+		  <div class="Clear"></div>
+  		</div>	
+			
+        </div>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/freelancer.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/humanize-duration.js"></script>
+    <script src="js/nbtn.js"></script>
+    <script src="js/angular.min.js"></script>
+
+	<script src="js/caman.full.min.js"></script>
+	
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+
+				Caman("#imagem", function () {
+					  this.brightness(10);
+
+					  /*
+					   * Creates a new layer. Everything called inside the callback argument will be applied
+					   * to the new layer. Layers have some special layer-only functions such as setBlendingMode(),
+					   * opacity(), and copyParent(). In order to access the standard filters, you need to access them
+					   * through this.filter.
+					   */
+					  this.newLayer(function () {
+					    // There are many blending modes, more below.
+					    this.setBlendingMode('multiply');
+					    this.opacity(10);
+					    this.copyParent();
+
+					    this.filter.gamma(0.8);
+					    this.filter.contrast(50);
+
+					    /*
+					     * Yep, you can stack multiple layers! The further a layer is nested, the higher up on the layer
+					     * stack it will be.
+					     */
+					    this.newLayer(function () {
+					      this.setBlendingMode('softLight');
+					      this.opacity(10);
+					      this.fillColor('#f49600');
+					    });
+
+					    this.filter.exposure(10);
+					  });
+
+					  this.exposure(20);
+					  this.gamma(0.8);
+					  this.render();
+
+				});
+
+
+				$('input[type=range]').change(applyFilters);
+
+				function applyFilters() {
+				  var brightness = parseInt($('#brightness').val());
+
+
+				    Caman('#imagem' , function() {
+				      this.revert(false);
+				      this.brightness(brightness);
+
+				      this.render();
+				    });
+				}
+		});
+
+
+
+
+
+	</script>
+</body>
+
+</html>
