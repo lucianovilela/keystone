@@ -13,19 +13,20 @@ keystone.init({
 
 	'name': 'Vida de Lutador',
 	'brand': 'Vida de Lutador',
-	
+
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
-    
+
     'port' : process.env.OPENSHIFT_NODEJS_PORT || 3000,
 	'mongo' : process.env.OPENSHIFT_MONGODB_DB_URL  || 'mongodb://localhost/vida-de-lutador',
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
+	'user model': 'User',
+	'title':'João Roque Jiu Jitsu'
 
 });
 

@@ -1,13 +1,24 @@
 {
-  "name": "my-site",
+  "name": "Joao_Roque_JJ",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "moment": "2.12.0",
+    "newrelic": "1.26.2",
     "keystone": "^0.3.16",
     "async": "^1.5.0",
     "underscore": "^1.8.3",
     "dotenv": "^1.1.0",
-    "angular": "^1.5.2"
+    "angular": "^1.5.2",
+    "crypto": "0.0.3",
+    "lodash": "3.10.1",
+    "passport": "0.3.2",
+    "passport-facebook": "2.1.1",
+    "passport-github": "1.1.0",
+    "passport-google-oauth": "^0.2.0",
+    "passport-twitter": "1.0.4",
+    "request": "2.69.0"
+
   },
   "devDependencies": {
     "grunt": "^0.4.4",

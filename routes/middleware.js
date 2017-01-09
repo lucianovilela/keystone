@@ -7,8 +7,9 @@
  * you have more middleware you may want to group it as separate
  * modules in your project's /lib directory.
  */
-
-var _ = require('underscore');
+ //var _ = require('lodash');
+ var querystring = require('querystring');
+ var _ = require('underscore');
 
 
 /**
@@ -22,7 +23,12 @@ var _ = require('underscore');
 exports.initLocals = function(req, res, next) {
 
 	var locals = res.locals;
+	locals.page = {
+		title: 'Joao Roque Jiu-Jitsu',
+		path: req.url.split("?")[0] // strip the query - handy for redirecting back to the page
+	};
 
+//	locals.qs_set = qs_set(req, res);
 	locals.navLinks = [
 		{ label: 'Home',		key: 'home',		href: '/' },
 		{ label: 'Blog',		key: 'blog',		href: '/blog' },
