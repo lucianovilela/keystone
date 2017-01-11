@@ -11,8 +11,8 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Vida de Lutador',
-	'brand': 'Vida de Lutador',
+	'name': 'João Roque Jiu-Jitsu',
+	'brand': 'João Roque Jiu-Jitsu',
 
 	'less': 'public',
 	'static': 'public',
