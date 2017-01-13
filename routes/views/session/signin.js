@@ -2,8 +2,9 @@ var keystone = require('keystone'),
 	async = require('async');
 
 exports = module.exports = function(req, res) {
-	
+	console.log(req.user);
 	if (req.user) {
+		console.log('target'+req.cookies.target);
 		return res.redirect(req.cookies.target || '/me');
 	}
 	
