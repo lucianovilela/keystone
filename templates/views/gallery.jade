@@ -2,7 +2,7 @@ extends ../layouts/default
 
 block intro
 	.container
-		h1 Gallery
+		h1 Galeria
 	
 block content
 	.container
@@ -10,7 +10,7 @@ block content
 			each gallery in galleries
 				h2= gallery.name
 					if gallery.publishedDate
-						.pull-right.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
+						.pull-right.text-muted= gallery._.publishedDate.format('DD/MM/YYYY')
 				
 				.row.gallery-images
 					if gallery.heroImage.exists

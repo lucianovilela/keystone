@@ -11,7 +11,7 @@ mixin form-join(args)
 		if args.modal
 			.modal-header
 				button(type="button", class="close", data-dismiss="modal", aria-hidden="true") &times;
-				h4.modal-title Join SydJS
+				h4.modal-title Cadastrar em João Roque Jiu-Jitsu
 		div(class=args.modal ? 'modal-body' : null)
 			include ../../includes/social-signin
 			p.auth-form-divider: span.auth-form-divider-text or
@@ -34,22 +34,22 @@ mixin form-join(args)
 					- var checkFormError = function(key) { return form.error && form.error.errors && form.error.errors[key] ? 'has-error' : null }
 				.form-groups
 					.form-group(class=!args.modal ? checkFormError('firstname') : null)
-						label(for='firstname').sr-only First name
-						input(type='text', name='firstname', placeholder='First name', value=!args.modal ? form.firstname : null).form-control.form-control--first
+						label(for='firstname').sr-only Nome
+						input(type='text', name='firstname', placeholder='Nome', value=!args.modal ? form.firstname : null).form-control.form-control--first
 					.form-group(class=!args.modal ? checkFormError('lastname') : null)
-						label(for='lastname').sr-only Last name
-						input(type='text', name='lastname', placeholder='Last name', value=!args.modal ? form.lastname : null).form-control
+						label(for='lastname').sr-only Sobrenome
+						input(type='text', name='lastname', placeholder='Sobrenome', value=!args.modal ? form.lastname : null).form-control
 					.form-group(class=!args.modal ? checkFormError('email') : null)
 						label(for='email').sr-only Email
 						input(type='email', name='email', placeholder='Email', value=!args.modal ? form.email : null).form-control
 					.form-group(class=!args.modal ? checkFormError('password') : null)
-						label(for='password').sr-only Password
-						input(type='password', name='password', placeholder='Password', value=!args.modal ? form.password : null).form-control
+						label(for='password').sr-only Senha
+						input(type='password', name='password', placeholder='Senha', value=!args.modal ? form.password : null).form-control
 					.form-group(class=!args.modal ? checkFormError('website') : null)
 						label(for='website').sr-only Website (optional)
-						input(type='website', name='website', placeholder='Website (optional)', value=!args.modal ? form.website : null).form-control.form-control--last
-				button(type='submit').btn.btn-block.btn-primary.btn-submit Join
+						input(type='website', name='website', placeholder='Website', value=!args.modal ? form.website : null).form-control.form-control--last
+				button(type='submit').btn.btn-block.btn-primary.btn-submit Cadastrar
 		
 			p.text-center.text-muted.mt-3
-				| Already have an account? 
-				a(href=args.modal ? js : '/signin', rel=args.modal ? 'modal-pane' : null, data-modal-pane=args.modal ? 'signin' : null) Sign in
+				| Você já tem uma conta? 
+				a(href=args.modal ? js : '/signin', rel=args.modal ? 'modal-pane' : null, data-modal-pane=args.modal ? 'signin' : null) Entrar
