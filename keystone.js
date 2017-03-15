@@ -20,7 +20,7 @@ keystone.init({
 	'views': 'templates/views',
 	'view engine': 'jade',
 
-    'port' : process.env.PORT || 3000,
+  'port' : process.env.PORT || 3000,
 	'mongo' : process.env.OPENSHIFT_MONGODB_DB_URL  || 'mongodb://localhost/vida-de-lutador',
 	'auto update': true,
 	'session': true,
