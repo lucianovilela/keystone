@@ -20,7 +20,7 @@ keystone.init({
 	'views': 'templates/views',
 	'view engine': 'jade',
 
-  'port' : process.env.PORT || 3000,
+    'port' : process.env.PORT || 3000,
 	'mongo' : process.env.OPENSHIFT_MONGODB_DB_URL  || 'mongodb://localhost/vida-de-lutador',
 	'auto update': true,
 	'session': true,
@@ -35,7 +35,8 @@ keystone.init({
 keystone.import('models');
 
 // Setup common locals for your templates. The following are required for the
-// bundled templates and layouts. Any runtime locals (that should be set uniquely
+// bundled templates and layouts. Any runtime locals (that should be set
+// uniquely
 // for each request) should be added to ./routes/middleware.js
 
 keystone.set('locals', {
@@ -52,10 +53,11 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'posts': ['posts', 'post-categories'],
+	'news': ['posts', 'post-categories'],
 	'galleries': 'galleries',
 	'enquiries': 'enquiries',
 	'users': 'users'
+	'agenda': ['agendas', 'organizacaoes']
 });
 
 // Start Keystone to connect to your database and initialise the web server

@@ -31,9 +31,7 @@ exports.initLocals = function(req, res, next) {
 //	locals.qs_set = qs_set(req, res);
 	locals.navLinks = [
 		{ label: 'Home',		key: 'home',		href: '/' },
-		{ label: 'Blog',		key: 'blog',		href: '/blog' },
-		{ label: 'Gallery',		key: 'gallery',		href: '/gallery' },
-		{ label: 'Contact',		key: 'contact',		href: '/contact' }
+		{ label: 'Notícias',	key: 'blog',		href: '/blog' }
 	];
 
 	locals.user = req.user;
