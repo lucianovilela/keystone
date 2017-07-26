@@ -2,3 +2,8 @@ node_modules/
 .env
 npm-debug.log
 updates/
+target
+.settings/*
+!.settings/.jsdtscope
+.project
+.classpath
