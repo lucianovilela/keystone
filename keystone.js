@@ -3,7 +3,11 @@
 require('dotenv').load();
 
 // Require keystone
-var keystone = require('keystone');
+var keystone = require('keystone'),
+    express = require('express'),
+	serverStatic =require('serve-static');
+
+
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -15,7 +19,7 @@ keystone.init({
 	'brand': 'João Roque Jiu-Jitsu',
 
 	'less': 'public',
-	'static': 'public',
+	'static': serverStatic('app/public', {'redirect':false}),
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
@@ -43,13 +47,13 @@ keystone.set('locals', {
 	_: require('underscore'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
+	
 	editable: keystone.content.editable
 });
 
 // Load your project's Routes
 
 keystone.set('routes', require('./routes'));
-
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
