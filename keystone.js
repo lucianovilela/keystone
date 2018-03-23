@@ -19,7 +19,7 @@ keystone.init({
 	'brand': 'João Roque Jiu-Jitsu',
 
 	'less': 'public',
-	'static': serverStatic('app/public', {'redirect':false}),
+	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
@@ -30,7 +30,8 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'title':'João Roque Jiu Jitsu'
+	'title':'João Roque Jiu Jitsu',
+	'admin path': 'app/keystone'
 
 });
 
